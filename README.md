@@ -21,6 +21,11 @@ To run this script, you need the following Python libraries:
 - `torchvision==0.18.0`
 - `torchaudio==2.3.0`
 
+Run the script from the command line:
+```
+pip install -r requirements.txt
+```
+
 ## How It Works
 1. **Input Handling**: The script expects a single command line argument, which is the text prompt for the model. If the prompt is not provided, the script will exit with a usage message.
 2. **Model and Tokenizer Setup**: It loads the `GPT2LMHeadModel` and `GPT2Tokenizer` from the `transformers` library. The model and tokenizer are used to process the input prompt and generate text.
