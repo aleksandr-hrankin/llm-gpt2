@@ -1,10 +1,13 @@
+import os
 import sys
 import time
 
 from transformers import GPT2LMHeadModel, GPT2Tokenizer
+from script.download_model_script import download_and_save_model
 
 
 MODEL_NAME = "gpt2-xl"
+DOWNLOAD_MODEL_PATH = "./gpt2-xl"
 
 
 def get_current_str_time() -> str:
@@ -16,12 +19,15 @@ def main():
         print("Usage: python main.py 'your prompt'")
         return
 
+    if not os.path.isdir(DOWNLOAD_MODEL_PATH) or not any(os.listdir(DOWNLOAD_MODEL_PATH)):
+        download_and_save_model(model_name=MODEL_NAME, save_directory=DOWNLOAD_MODEL_PATH)
+
     prompt = sys.argv[1]
 
-    tokenizer = GPT2Tokenizer.from_pretrained(MODEL_NAME)
+    tokenizer = GPT2Tokenizer.from_pretrained(DOWNLOAD_MODEL_PATH)
     tokenizer.pad_token = tokenizer.eos_token
 
-    model = GPT2LMHeadModel.from_pretrained(MODEL_NAME)
+    model = GPT2LMHeadModel.from_pretrained(DOWNLOAD_MODEL_PATH)
     model.config.pad_token_id = tokenizer.pad_token_id
 
     inputs = tokenizer.encode(prompt, return_tensors="pt", padding=True)
