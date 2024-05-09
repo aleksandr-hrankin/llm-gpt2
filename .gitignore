@@ -21,3 +21,5 @@ Desktop.ini  # Windows system file
 *.swn      # Vim swap files
 *.bak      # Generic backup files
 *.tmp      # Temporary files
+
+gpt2-xl/
