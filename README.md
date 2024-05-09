@@ -8,6 +8,11 @@ Run the script from the command line:
 ```
 python script.py 'your prompt'
 ```
+Run the script from the docker:
+```
+docker run <your-docker-img-name> python main.py 'your prompt'
+```
+
 
 ## Dependencies
 To run this script, you need the following Python libraries:
