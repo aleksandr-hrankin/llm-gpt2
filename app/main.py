@@ -16,14 +16,15 @@ def get_current_str_time() -> str:
 
 def main():
     if len(sys.argv) < 2:
-        print("Usage: python main.py 'your prompt'")
+        print(f"[{get_current_str_time()}] Usage: python main.py 'your prompt'")
         return
 
     if not os.path.isdir(DOWNLOAD_MODEL_PATH) or not any(os.listdir(DOWNLOAD_MODEL_PATH)):
+        print(f"[{get_current_str_time()}] Downloading GPT2 model...")
         download_and_save_model(model_name=MODEL_NAME, save_directory=DOWNLOAD_MODEL_PATH)
 
     start_time = time.time()
-    print(f"[{get_current_str_time()}] Start processing")
+    print(f"[{get_current_str_time()}] Start processing...")
 
     prompt = sys.argv[1]
 
