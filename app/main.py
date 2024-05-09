@@ -13,7 +13,7 @@ def get_current_str_time() -> str:
 
 def main():
     if len(sys.argv) < 2:
-        print("Usage: python script.py 'your prompt'")
+        print("Usage: python main.py 'your prompt'")
         return
 
     prompt = sys.argv[1]
